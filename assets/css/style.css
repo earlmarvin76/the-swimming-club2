@@ -1,4 +1,4 @@
-/* Google fonts import */
+/* External resource: Google Fonts supplies the Lato and Oswald typefaces. */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
 /* Asterisk wildcard selector to override default styles added by the browser */
@@ -6,4 +6,650 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+/* General styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Generic project styles */
+    color: #3a3a3a;
+    font-family: 'Lato', sans-serif;
+    background: #f4f4f4;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Oswald', sans-serif;
+    color: #3a3a3a;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+/* Header */
+header {
+    background-color: #ffffff;
+    padding: 0 1rem;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    box-shadow: 0 2px 2px #3a3a3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#menu {
+    font-size: 110%;
+    letter-spacing: 4px;
+    list-style-type: none;
+}
+
+#menu>li {
+    margin-bottom: 1em;
+}
+
+
+.active {
+    border-bottom: 1px solid #3a3a3a;
+}
+
+/* Navbar styles with dropdown toggle */
+nav {
+    position: absolute;
+    background-color: #ffffff;
+    width: 100%;
+    left: 0;
+    padding: 0 1rem;
+    box-shadow: 0 2px 2px #3a3a3a;
+    display: none;
+    top: 100%;
+}
+
+/* Nav toggle */
+#nav-toggle:checked~nav {
+    display: block;
+}
+
+#nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    font-size: 2rem;
+}
+
+/* Main content */
+main {
+    /* Enlarge main element to push footer down*/
+    flex: 1 0 auto;
+    /* Add margin at the top to prevent content from being covered by the header */
+    margin-top: 47px;
+    /* Enable flex properties for child elements */
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #3a3a3a;
+    box-shadow: 0 1px 2px #3a3a3a;
+}
+
+/* Form */
+#signup {
+    background-image: linear-gradient(rgba(15, 22, 29, 0.5), rgba(15, 22, 29, 0.5)), url("images/hero-swim.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 20px 10% 40px;
+    flex-grow: 1;
+    min-height: 700px;
+    position: relative;
+}
+
+#signup-form {
+    color: #ffffff;
+    background-color: rgba(17, 22, 28, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+    padding: 30px;
+    width: min(100%, 400px);
+    margin: 100px 0 20px;
+}
+
+@media screen and (max-width: 767px) {
+    #signup {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 20px 10% 30px;
+        background-position: center top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        min-height: 540px;
+    }
+
+    #signup-form {
+        margin: 0 auto 12px;
+        width: min(100%, 360px);
+        transform: translateY(8px);
+    }
+}
+
+#signup-form>h2 {
+    color: #fafafa;
+    margin-bottom: 20px;
+}
+
+
+.text-input {
+    background: transparent;
+    color: #fafafa;
+    width: 100%;
+    height: 25px;
+    margin: 5px 0 20px 0;
+    border: 1px solid #fafafa;
+    border-radius: 2px;
+    padding: 0 5px;
+}
+
+.radio-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.join-button {
+    margin-top: 20px;
+    border-radius: 2px;
+    padding: 15px 32px;
+    font-size: 100%;
+    background-color: #454b1b;
+    color: #fafafa;
+}
+
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px) {
+    #signup {
+        background-position: center;
+        min-height: 700px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 60px;
+    }
+
+    #signup-form {
+        max-width: 400px;
+        position: relative;
+        left: auto;
+        top: auto;
+        margin: 0 auto;
+    }
+
+    .text-input:hover {
+        border-color: #f16c6b;
+    }
+
+    .join-button:hover {
+        background-color: #fafafa;
+        color: #454b1b;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    #signup {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 80px;
+    }
+
+    #signup-form {
+        margin: 0 auto;
+        width: min(90%, 420px);
+    }
+}
+
+/* Project-specific confirmation-page styles; the background reuses the local hero image. */
+#confirmation {
+    flex: 1;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 10%;
+    background-image: linear-gradient(rgba(15, 22, 29, 0.5), rgba(15, 22, 29, 0.5)), url("images/hero-swim.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.confirmation-card {
+    max-width: 560px;
+    padding: 45px 35px;
+    color: #ffffff;
+    text-align: center;
+    background-color: rgba(17, 22, 28, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+.confirmation-card h2 {
+    color: #ffffff;
+    margin: 15px 0;
+}
+
+.confirmation-card p {
+    margin-bottom: 25px;
+}
+
+.confirmation-icon {
+    color: #f16c6b;
+    font-size: 3rem;
+}
+
+.confirmation-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+    #confirmation {
+        min-height: 540px;
+        padding: 30px 10%;
+    }
+
+    .confirmation-card {
+        padding: 35px 22px;
+    }
+}
+
+/* Hero section */
+#hero {
+    height: 600px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #3a3a3a;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    filter: saturate(0.9) contrast(1.05);
+}
+
+#cover-text {
+    /* Final rgba value sets the opacity so it is semi-transparent */
+    background-color: rgba(241, 109, 107, .7);
+    font-size: 130%;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: min(80%, 320px);
+    min-height: 200px;
+    padding: 40px 20px 20px 20px;
+    z-index: 1;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+#cover-text>h2,
+#cover-text>h3 {
+    color: #ffffff;
+}
+
+/* Reasons section */
+#reasons {
+    width: 90%;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.88);
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+}
+
+#reasons h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 280%;
+}
+
+#benefits-physical>div,
+#benefits-mental>div {
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+#benefits p {
+    padding: 0 20px;
+}
+
+#benefits hr {
+    border-top: 1px solid #3a3a3a;
+    margin: 5px 0;
+}
+
+#circle-cover-bg {
+    display: block;
+    height: 90vw;
+    width: 90vw;
+    margin-bottom: 20px;
+    object-fit: cover;
+    object-position: center center;
+    /* Makes the square image into a circle */
+    border-radius: 50%;
+    max-width: 300px;
+    max-height: 300px;
+    box-shadow: 0 4px 12px rgba(58, 58, 58, 0.18);
+    border: 3px solid #f4f4f4;
+}
+
+#benefits-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+/* Keep the swimming schedule visible so visitors can plan a session. */
+#meetups {
+    display: block;
+}
+
+/* Project-specific schedule heading added for the visible home-page schedule. */
+#meetups > h2 {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+#times {
+    background: url('images/benefits-swim.jpg') no-repeat center/cover;
+    /* Handles responsivity without the need for a media query */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#times div {
+    color: #fafafa;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 15px;
+    text-align: center;
+    /* This will not wrap on screens of less than 400px wide.
+    Each div will expand to fill the available space on its row */
+    flex-basis: 200px;
+    flex-grow: 1;
+    /* Creates a grid of meetup time divs over the background image */
+    border: 2px solid white;
+}
+
+#times h3 {
+    /* Override the heading colour set in general styles */
+    color: #fafafa;
+}
+
+/* Gallery page */
+#gallery {
+    padding: 1rem 0;
+}
+
+#gallery h2 {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+#photos img {
+    width: 100%;
+    display: block;
+    margin: 0;
+    height: 260px;
+    object-fit: cover;
+    object-position: center;
+    line-height: 0;
+}
+
+#photos {
+    line-height: 0;
+    column-gap: 0;
+    margin: 0;
+    padding-bottom: 0;
+    border-bottom: 1px solid #3a3a3a;
+    box-shadow: 0 1px 2px #3a3a3a;
+}
+
+/* Footer */
+footer {
+    background-color: #f4f4f4;
+    border-top: 1px solid #3a3a3a;
+    padding: 2rem 1rem 1rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer-details,
+.footer-links {
+    text-align: center;
+}
+
+.footer-details h3,
+.footer-links h3 {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: #3a3a3a;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+#social-networks {
+    text-align: center;
+    padding: 20px 0 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1.5rem;
+    list-style-type: none;
+    width: min(100%, 500px);
+    margin: 0 auto;
+}
+
+#social-networks i {
+    font-size: 160%;
+    color: #3a3a3a;
+}
+
+.footer-map {
+    padding: 0;
+}
+
+.footer-map iframe {
+    width: 100%;
+    min-height: 250px;
+    border: 0;
+}
+
+/* Media query: large or landscape phones (576px and up) */
+@media screen and (min-width: 576px) {
+    #photos {
+        column-count: 2;
+        column-gap: 0;
+        break-inside: avoid;
+    }
+}
+
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px) {
+
+    /* Header */
+    nav {
+        display: block;
+        position: relative;
+        box-shadow: none;
+        width: fit-content;
+        padding-right: 1rem;
+    }
+
+    #menu {
+        display: flex;
+    }
+
+    #menu>li {
+        padding-left: 1rem;
+    }
+
+    .nav-toggle-label {
+        display: none;
+    }
+
+    #logo {
+        font-size: 280%;
+        line-height: 75px;
+        margin: 0 0.5rem;
+    }
+
+    /* Main content */
+    main {
+        /* Push main content down to accommodate larger header */
+        margin-top: 79px;
+    }
+
+    /* Hero */
+    #cover-text {
+        width: 300px;
+        right: 50px;
+    }
+
+    /* Reasons section */
+    #benefits-physical,
+    #benefits-mental {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #benefits-physical>div,
+    #benefits-mental>div {
+        width: 75%;
+    }
+
+    #benefits-mental>div {
+        text-align: end;
+        align-self: flex-end;
+    }
+
+    .footer-content {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .footer-details,
+    .footer-links,
+    .footer-map {
+        flex: 1;
+    }
+
+    .footer-details,
+    .footer-links {
+        text-align: left;
+    }
+
+    /* Gallery */
+    #photos {
+        column-count: 3;
+        break-inside: avoid;
+    }
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    #menu a:hover {
+        border-bottom: 1px solid #3a3a3a;
+    }
+
+    /* Gallery */
+    #photos {
+        column-count: 4;
+        break-inside: avoid;
+    }
+}
+
+@media screen and (min-width: 1200px) {    
+    /* Reasons section */
+    #benefits {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #benefits > div {
+        flex: 1;
+    }
+
+    #benefits-image {
+        order: 0
+    }
+
+    #benefits-mental {
+        order: 1;
+    }
+
+    #benefits-mental > div {
+        align-self: flex-start;
+    }
+
+    #benefits-physical > div {
+        align-self: flex-end;
+    }
+    .footer-content {
+        align-items: stretch;
+    }
+
+    .footer-details {
+        text-align: center;
+    }
+
+    .footer-map iframe {
+        min-height: 11rem;
+    }
+
 }
